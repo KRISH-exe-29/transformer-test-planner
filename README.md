@@ -4,6 +4,8 @@ Plan the IEC 60076 tests for every power transformer unit in a work order, track
 
 **▶ [Open the app](https://transformer-test-planner.vercel.app)**
 
+![Schedule board with 12 tests across three units, and the progress dashboard above it](docs/screenshots/schedule.png)
+
 - Starts with 40 standard tests already listed, from ratio and winding resistance to tan delta, impulse, heat run and sound level. You can add, rename or remove tests.
 - Each test gets a day, a shift (day or night), a unit and a type: routine, type or special.
 - Mark each entry Pending, In Progress, Completed or Failed, and see progress per unit on the dashboards.
@@ -19,6 +21,10 @@ npm install && npm run dev
 ```
 
 Open http://localhost:3000. Enter the work order details (number, customer, rating, voltage, cooling type), pick a day and a unit, add tests, then export to Excel.
+
+## Unit status at a glance
+
+![Stacked bar chart of completed, failed, in-progress and pending tests for each transformer unit](docs/screenshots/unit-status.png)
 
 ## How to use it
 
