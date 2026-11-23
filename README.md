@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Transformer Test Planner
 
-## Getting Started
+Plan the IEC 60076 tests for every power transformer unit in a work order, track each test from pending to completed, and give the test bay a ready-to-use Excel schedule.
 
-First, run the development server:
+**▶ [Open the app](https://transformer-test-planner.vercel.app)**
+
+- Starts with 40 standard tests already listed, from ratio and winding resistance to tan delta, impulse, heat run and sound level. You can add, rename or remove tests.
+- Each test gets a day, a shift (day or night), a unit and a type: routine, type or special.
+- Mark each entry Pending, In Progress, Completed or Failed, and see progress per unit on the dashboards.
+- One click exports the schedule to `Test_Schedule_<work order>_<date>.xlsx`.
+- Everything is saved in your browser, with no login and no server.
+
+## Quick start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/KRISH-exe-29/transformer-test-planner.git
+cd transformer-test-planner
+npm install && npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. Enter the work order details (number, customer, rating, voltage, cooling type), pick a day and a unit, add tests, then export to Excel.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How to use it
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Job info.** Fill in work order number, customer, transformer rating, voltage level, cooling type and number of windings. They appear in the Excel header.
+2. **Days and units.** The plan starts with Day 1 to Day 10 and Unit 1. Add or remove days and units as needed.
+3. **Schedule.** Pick a day, then add tests with their unit, shift and test type.
+4. **Track.** Update each entry's status as the test runs. The progress and unit status dashboards update right away.
+5. **Export.** Download the schedule as Excel for the test bay.
 
-## Learn More
+Data is stored in `localStorage` (keys prefixed `ttp_`), so it stays in the browser you used. Clearing site data clears the plan.
 
-To learn more about Next.js, take a look at the following resources:
+## Tech stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Next.js 16 · React 19 · TypeScript · Tailwind CSS · Recharts · SheetJS (`xlsx-js-style`) · Framer Motion. Deployed on Vercel.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project layout
 
-## Deploy on Vercel
+```
+app/          page and layout
+components/   job form, day/unit selectors, schedule table, dashboards, Excel export
+data/         default test list, test types, shifts and statuses
+lib/store.tsx app state and localStorage persistence
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Command | What it does |
+|---|---|
+| `npm run dev` | Development server on port 3000 |
+| `npm run build` | Production build |
+| `npm start` | Serve the production build |
+| `npm run lint` | ESLint |
