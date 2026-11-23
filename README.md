@@ -12,6 +12,18 @@ Plan the IEC 60076 tests for every power transformer unit in a work order, track
 - One click exports the schedule to `Test_Schedule_<work order>_<date>.xlsx`.
 - Everything is saved in your browser, with no login and no server.
 
+## See it in 30 seconds
+
+<a href="docs/film/planner.mp4">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/film/planner-dark.gif">
+    <source media="(prefers-color-scheme: light)" srcset="docs/film/planner-light.gif">
+    <img src="docs/film/planner-dark.gif" width="100%" alt="Animated film on an oscilloscope screen: 40 IEC 60076 tests, a day-by-unit schedule filling in, and a one-click Excel export">
+  </picture>
+</a>
+
+<p align="center"><sub>Transformer Test Planner in 30 seconds. The preview plays silently with subtitles; <a href="docs/film/planner.mp4">open the MP4</a> for the narrated version with music.</sub></p>
+
 ## Quick start
 
 ```bash
